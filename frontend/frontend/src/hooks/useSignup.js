@@ -18,12 +18,14 @@ export const useSignup = ()=>{
         seterror(json.error)
     }
     if(response.ok){
-        const json = await response.json()
         localStorage.setItem('user',JSON.stringify(json))
    
         dispatch({type:'LOGIN', payload:json})
         setisloading(false)
     }
     }
+
+   // console.log(error);
+    
     return { Signup, isloading ,error}
 }

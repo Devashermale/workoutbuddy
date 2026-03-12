@@ -8,9 +8,7 @@ const workoutRoutes = require('./routes/workout.js')
 const userlogin = require('./routes/user.js')
 dotenv.config()
 //express app
-app.use(cors ({
-    origin:'http://localhost:3001'
-}))
+app.use(cors())
 
 app.use((req, res, next)=>{
     console.log(req.path , req.method)

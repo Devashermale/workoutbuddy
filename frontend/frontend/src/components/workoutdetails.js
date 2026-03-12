@@ -8,13 +8,13 @@ const WorkoutDetails = ({workout}) => {
   const {dispatch} = useWorkoutsContext();
   const {user} = useAuthContext();
   const handleclick = async()=>{
-    if(!user){
+    if(user){
       return
     }
-    const response = await fetch('http://localhost:3000/api/workouts/'+workout._id,{
+    const response = await fetch('http://localhost:3000/api/workouts'+workout._id,{
       method: 'DELETE',
       headers :{
-        'authorization': `Bearer ${user.token}`
+        'Authorization': `Bearer ${user.token}`
       }
     })
     const json = await response.json()

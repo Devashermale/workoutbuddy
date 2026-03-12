@@ -5,8 +5,10 @@ const Signup =() =>{
     const [email ,setemail ] = useState('')
     const [password , setpassword] = useState('')
     const {Signup ,error , isloading} = useSignup()
-    const handlesubmit = async (e) => {
-    await Signup(email ,password) 
+    const handlesubmit =  (e) => {
+      e.preventDefault()
+   Signup(email ,password)
+   //console.log(email ,password) 
     }
 
     return (
@@ -16,7 +18,7 @@ const Signup =() =>{
         <input type="email" onChange={(e)=>setemail(e.target.value)}/>
          <label>password</label>
         <input type="password" onChange={(e)=>setpassword(e.target.value)}/>
-      <button disabled ={isloading}>Sign up</button>
+      <button disabled={isloading}>Sign up</button>
       {error&&<div className="error">{error}</div>}
     </form>
     )
