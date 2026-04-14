@@ -14,7 +14,10 @@ const workoutschema = new Schema({
   load:{
      type:Number,
      required:true  
-  }
+  },
+  user_id:{
+    type:string,
+    required:true
 },
 {
     timestamps:true
